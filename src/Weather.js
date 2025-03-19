@@ -7,7 +7,6 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity || "Sydney");
   const [weatherData, setWeatherData] = useState({ ready: false });
 
-  // API call to fetch weather data
   useEffect(() => {
     function search() {
       const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
@@ -17,9 +16,8 @@ export default function Weather(props) {
     }
 
     search();
-  }, [city]); // ✅ Added `city` to dependency array for updated searches
+  }, [city]);
 
-  // Handle API response
   function handleResponse(response) {
     setWeatherData({
       ready: true,
@@ -34,21 +32,17 @@ export default function Weather(props) {
     });
   }
 
-  // Handles city change
   function handleCityChange(event) {
     setCity(event.target.value);
   }
 
-  // Handles form submission
   function handleSubmit(event) {
     event.preventDefault();
   }
 
-  // Display weather data
   if (weatherData.ready) {
     return (
       <div className="container">
-        {/* Search Form */}
         <form onSubmit={handleSubmit} className="search-form mb-4">
           <div className="row justify-content-center">
             <div className="col-8">
@@ -70,7 +64,6 @@ export default function Weather(props) {
           </div>
         </form>
 
-        {/* Weather Data */}
         <WeatherInfo data={weatherData} />
       </div>
     );

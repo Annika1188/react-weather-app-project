@@ -5,7 +5,7 @@ import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   if (!props.data) {
-    return null; // ✅ Prevents crashing if data is missing
+    return null;
   }
 
   return (

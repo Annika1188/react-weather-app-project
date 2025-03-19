@@ -95,3 +95,44 @@ ul {
 li {
   margin-bottom: 5px;
 }
+.WeatherTemperature {
+  font-size: 42px;
+  font-weight: bold;
+  color: #212529;
+  margin-left: 10px;
+}
+
+.WeatherTemperature .unit {
+  font-size: 20px;
+  margin-left: 3px;
+  color: #6c757d;
+}
+
+.WeatherTemperature a {
+  text-decoration: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.WeatherTemperature a:hover {
+  text-decoration: underline;
+}
+.Footer {
+  text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: 20px;
+  padding: 10px 0;
+  border-top: 1px solid #eaeaea;
+  background-color: #f9f9f9;
+}
+
+.Footer a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.Footer a:hover {
+  text-decoration: underline;
+}
