@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer className="Footer">
       <p>
-        Coded by <strong>Your Name</strong> |{" "}
+        Coded by <strong>Annika Scharkie </strong> |{" "}
         <a
-          href="https://github.com/your-github"
+          href="https://github.com/Annika1188/react-weather-app-project"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -15,7 +15,7 @@ export default function Footer() {
         </a>{" "}
         |{" "}
         <a
-          href="https://your-netlify-link.netlify.app"
+          href="https://annikasweatherappreact.netlify.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
