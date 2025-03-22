@@ -6,9 +6,26 @@ import WeatherForecastDay from "./WeatherForecastDay";
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
+
   useEffect(() => {
-    setLoaded(false);
+    const timer = setTimeout(() => {
+      setLoaded(false);
+      const apiKey = "2t140860597f63afo033b6cda0bf4143";
+      const longitude = props.coordinates.longitude;
+      const latitude = props.coordinates.latitude;
+      const apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
+
+      axios
+        .get(apiUrl)
+        .then(handleResponse)
+        .catch((error) => {
+          console.error("Error fetching forecast data:", error);
+        });
+    }, 1000); // 1-second delay to prevent too many requests
+
+    return () => clearTimeout(timer); // Clean up the timer on unmount
   }, [props.coordinates]);
+
   function handleResponse(response) {
     console.log("Forecast Data:", response.data.daily);
 
@@ -35,18 +52,6 @@ export default function WeatherForecast(props) {
       </div>
     );
   } else {
-    let apiKey = "2t140860597f63afo033b6cda0bf4143";
-    let longitude = props.coordinates.longitude;
-    let latitude = props.coordinates.latitude;
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
-
-    axios
-      .get(apiUrl)
-      .then(handleResponse)
-      .catch((error) => {
-        console.error("Error fetching forecast data:", error);
-      });
-
     return null;
   }
 }
