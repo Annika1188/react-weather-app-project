@@ -8,7 +8,7 @@ export default function WeatherForecast(props) {
   let [forecast, setForecast] = useState(null);
 
   function handleResponse(response) {
-    console.log("API Response:", response.data);
+    console.log("Forecast Data:", response.data.daily);
 
     if (response.data.daily) {
       setForecast(response.data.daily);
@@ -22,8 +22,8 @@ export default function WeatherForecast(props) {
     return (
       <div className="WeatherForecast">
         <div className="row">
-          {forecast.map((dailyForecast, index) =>
-            dailyForecast ? ( // ✅ Added safety check
+          {forecast.slice(0, 5).map((dailyForecast, index) =>
+            dailyForecast ? (
               <div className="col" key={index}>
                 <WeatherForecastDay data={dailyForecast} />
               </div>
