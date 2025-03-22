@@ -10,7 +10,7 @@ export default function Weather(props) {
 
   useEffect(() => {
     function search() {
-      const apiKey = "2t140860597f63afo033b6cda0bf4143";
+      const apiKey = "2t140860597f63afo033b6cda0bf4143"; // Correct API Key
       let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
       axios
@@ -25,7 +25,7 @@ export default function Weather(props) {
   }, [city]);
 
   function handleResponse(response) {
-    console.log("API Response (Full):", response.data);
+    console.log("API Response:", response.data);
 
     if (response.data.temperature) {
       setWeatherData({

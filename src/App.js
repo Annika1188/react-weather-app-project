@@ -3,10 +3,14 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./Footer";
 import Weather from "./Weather";
+import ErrorBoundary from "./ErrorBoundary"; // Added Error Boundary
+
 function App() {
   return (
     <div className="App">
-      <Weather />
+      <ErrorBoundary>
+        <Weather defaultCity="Sydney" />
+      </ErrorBoundary>
       <Footer />
     </div>
   );
